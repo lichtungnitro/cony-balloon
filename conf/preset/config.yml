@@ -1,0 +1,36 @@
+SOURCE:
+  - IBU_IM_CONV_PT2.csv
+MODE: pop  # accept control, pop or full
+DEPTH: session  # accept session or message
+CHANNEL:
+  - "1321"
+LANG:
+  - en
+  - fr
+  - it
+WEIGHT: equal  # accept equal, last and weighted
+NORMALIZE: minmax  # accept none, minmax, log, atan and zscore
+RESAMPLE: date  # accept date, week and month
+PERIODS:
+  by: expressid  # accept intentid, intentname, qname, relationguid, expressid and botexpid
+  before:
+    start: "2024-01-12"  # accept YYYY-MM-dd
+    end: "2024-01-15"
+  after:
+    start: "2024-01-16"
+    end: "2024-01-19"
+VERSIONS:
+  experiment:
+    start: "2024-01-12"
+    end: "2024-01-19"
+    by: intentid
+    scope: expt.txt
+  control:
+    start: "2024-01-12"
+    end: "2024-01-19"
+    by: qname
+    scope: ctrl.txt
+BLACKLIST:
+  uid: blacklist/uid.txt
+  qname: blacklist/qname.txt
+  qid: blacklist/qid.txt
